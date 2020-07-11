@@ -40,7 +40,6 @@ def trans(H):
 
 def j():
   a = int(input('Onde vai jogar: '))
-  W = []
   while a > 8 or a < 0:
     a = int(input('Onde vai jogar: '))
   b = str(input('O que quer jogar? '))
