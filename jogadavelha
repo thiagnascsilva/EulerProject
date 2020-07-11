@@ -1,0 +1,78 @@
+from tabulate import tabulate
+
+def wins(M):
+  if ((M[0] == 'X' and M[1] == 'X' and M[2] == 'X') or (M[3] == 'X' and M[4] == 'X' and M[5] == 'X')
+  or (M[6] == 'X' and M[7] == 'X' and M[8] == 'X') or (M[0] == 'X' and M[3] == 'X' and M[6] == 'X')
+  or (M[1] == 'X' and M[4] == 'X' and M[7] == 'X') or (M[2] == 'X' and M[5] == 'X' and M[8] == 'X')
+   or (M[0] == 'X' and M[4] == 'X' and M[8] == 'X') or (M[2] == 'X' and M[4] == 'X' and M[6] == 'X')):
+    return 1 
+  elif  ((M[0] == 'O' and M[1] == 'O' and M[2] == 'O') or (M[3] == 'O' and M[4] == 'O' and M[5] == 'O')
+   or (M[6] == 'O' and M[7] == 'O' and M[8] == 'O') or (M[0] == 'O' and M[3] == 'O' and M[6] == 'O')
+    or (M[1] == 'O' and M[4] == 'O' and M[7] == 'O') or (M[2] == 'O' and M[5] == 'O' and M[8] == 'O')
+     or (M[0] == 'O' and M[4] == 'O' and M[8] == 'O') or (M[2] == 'O' and M[4] == 'O' and M[6] == 'O')):
+    return 0
+def trans(H):
+  i = 0
+  K = []
+  L = []
+  while (i < 3):
+    K.append(H[i])
+    i = i+1
+  L.append(K)
+  i = 3
+  K = []
+  while (i < 6):
+    K.append(H[i])
+    i = i+1
+  L.append(K)
+  i = 6
+  K = []
+  while (i < 9):
+    K.append(H[i])
+    i = i+1
+  L.append(K)
+  return L
+
+def j():
+  a = int(input('Onde vai jogar: '))
+  W = []
+  while a > 8 or a < 0:
+    a = int(input('Onde vai jogar: '))
+  b = str(input('O que quer jogar? '))
+  while b != 'X' and b != 'O':
+    b = str(input('O que quer jogar? '))
+  return [a, b]
+
+def all():
+  U = [0,1,2,3,4,5,6,7,8]
+  E = ['','','','','','','','','']
+  JO = ['','','','','','','','','']
+  A = j()
+  a = A[0]
+  b = A[1]
+  W = ['NULL','NULL','NULL','NULL','NULL','NULL','NULL','NULL','NULL']
+  E[a] = a
+  W[a] = b
+  JO[a] = "J"
+  M = trans(W)
+  print(tabulate(M))
+  vic = wins(W)
+  while E != U and vic !=1 and vic != 0:
+    JO[a] = "J"
+    A = j()
+    while (JO[A[0]] == 'J'):
+      A = j()    
+    a = A[0]
+    b = A[1]
+    E[a] = a
+    W[a] = b
+    M = trans(W)
+    print(tabulate(M))
+    vic = wins(W)
+  if vic == 1:
+    print('X Wins')
+  elif vic == 0:
+    print('O Wins')
+  else:
+    print('Empate.')
+all()
