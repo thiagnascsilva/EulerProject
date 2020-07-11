@@ -1,3 +1,8 @@
+#Só é possível jogar com X ou O, ambos maiúsculas, as posições variam de 0 a 8. Começando da esquerda topo e indo para a direita. Como abaixo.
+# 0 | 1 | 2
+# 3 | 4 | 5
+# 6 | 7 | 8
+
 from tabulate import tabulate
 
 def wins(M):
