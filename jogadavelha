@@ -1,8 +1,3 @@
-#Só é possível jogar com X ou O, ambos maiúsculas, as posições variam de 0 a 8. Começando da esquerda topo e indo para a direita. Como abaixo.
-# 0 | 1 | 2
-# 3 | 4 | 5
-# 6 | 7 | 8
-#python
 from tabulate import tabulate
 
 def wins(M):
@@ -42,18 +37,19 @@ def j():
   a = int(input('Onde vai jogar: '))
   while a > 8 or a < 0:
     a = int(input('Onde vai jogar: '))
+  return a
+def xo():
   b = str(input('O que quer jogar? '))
   while b != 'X' and b != 'O':
     b = str(input('O que quer jogar? '))
-  return [a, b]
+  return b
 
 def all():
   U = [0,1,2,3,4,5,6,7,8]
   E = ['','','','','','','','','']
   JO = ['','','','','','','','','']
-  A = j()
-  a = A[0]
-  b = A[1]
+  a = j()
+  b = xo()
   W = ['NULL','NULL','NULL','NULL','NULL','NULL','NULL','NULL','NULL']
   E[a] = a
   W[a] = b
@@ -63,11 +59,13 @@ def all():
   vic = wins(W)
   while E != U and vic !=1 and vic != 0:
     JO[a] = "J"
-    A = j()
-    while (JO[A[0]] == 'J'):
-      A = j()    
-    a = A[0]
-    b = A[1]
+    a = j()
+    while (JO[a] == 'J'):
+      a = j()
+    if (b == 'X'):
+      b = "O"
+    else:
+      b = 'X'
     E[a] = a
     W[a] = b
     M = trans(W)
