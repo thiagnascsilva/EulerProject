@@ -56,6 +56,7 @@ def all():
   JO[a] = "J"
   M = trans(W)
   print(tabulate(M))
+  vic = wins(W)
   while E != U and vic !=1 and vic != 0:
     JO[a] = "J"
     a = j()
