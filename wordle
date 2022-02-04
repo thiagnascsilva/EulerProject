@@ -19,11 +19,11 @@ while i < 6:
   print('2 para verde, 3 para amarelo e 4 para preto.')
   num_str2 = repr(y)
 
-  a = int(input("Dígito da unidade: "))
-  b = int(input("Dígito da dezena: "))
-  c = int(input("Dígito da centena: "))
-  d = int(input("Dígito da milhar: "))
-  e = int(input("Dígito da dezena de milhar: "))
+  a = int(input("Cor do dígito da unidade: "))
+  b = int(input("Cor do dígito da dezena: "))
+  c = int(input("Cor do dígito da centena: "))
+  d = int(input("Cor do dígito da milhar: "))
+  e = int(input("Cor do dígito da dezena de milhar: "))
   j = 0
   H = []
 
